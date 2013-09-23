@@ -75,100 +75,142 @@ Create meta scope for each entry
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>captures</key>
+					<key>begin</key>
+					<string>^(msgid(_plural)?)\s+</string>
+					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>constant.character.double-quote.po</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>string.quoted.double.po</string>
-						</dict>
-						<key>3</key>
-						<dict>
-							<key>name</key>
-							<string>constant.character.double-quote.po</string>
+							<string>keyword.control.msgid.po</string>
 						</dict>
 					</dict>
-					<key>match</key>
-					<string>^msgid(?:_plural)?\s+(")(.*)(")\s*$</string>
+					<key>end</key>
+					<string>^(?!")</string>
 					<key>name</key>
-					<string>keyword.control.msgid.po</string>
+					<string>meta.scope.msgid.po</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(\G|^)"</string>
+							<key>end</key>
+							<string>"</string>
+							<key>name</key>
+							<string>string.quoted.double.po</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>\\[\\"]</string>
+									<key>name</key>
+									<string>constant.character.escape.po</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 				</dict>
 				<dict>
-					<key>captures</key>
+					<key>begin</key>
+					<string>^(msgstr)(?:(\[)(\d+)(\]))?\s+</string>
+					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>constant.character.double-quote.po</string>
+							<string>keyword.control.msgstr.po</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>string.quoted.double.po</string>
+							<string>keyword.control.msgstr.po</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>constant.character.double-quote.po</string>
+							<string>constant.numeric.po</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.control.msgstr.po</string>
 						</dict>
 					</dict>
-					<key>match</key>
-					<string>^msgstr(?:\[\d?\])?\s+(")(.*)(")\s*$</string>
+					<key>end</key>
+					<string>^(?!")</string>
 					<key>name</key>
-					<string>keyword.control.msgstr.po</string>
+					<string>meta.scope.msgstr.po</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>(\G|^)"</string>
+							<key>end</key>
+							<string>"</string>
+							<key>name</key>
+							<string>string.quoted.double.po</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>\\[\\"]</string>
+									<key>name</key>
+									<string>constant.character.escape.po</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
 				</dict>
 				<dict>
-					<key>captures</key>
+					<key>begin</key>
+					<string>^(msgctxt)(?:(\[)(\d+)(\]))?\s+</string>
+					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>constant.character.double-quote.po</string>
+							<string>keyword.control.msgctxt.po</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>string.quoted.double.po</string>
+							<string>keyword.control.msgctxt.po</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>constant.character.double-quote.po</string>
+							<string>constant.numeric.po</string>
 						</dict>
-					</dict>
-					<key>match</key>
-					<string>^msgctxt(?:\[\d?\])?\s+(")(.*)(")\s*$</string>
-					<key>name</key>
-					<string>keyword.control.msgctxt.po</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
+						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>constant.character.double-quote.po</string>
+							<string>keyword.control.msgctxt.po</string>
 						</dict>
-						<key>2</key>
+					</dict>
+					<key>end</key>
+					<string>^(?!")</string>
+					<key>name</key>
+					<string>meta.scope.msgctxt.po</string>
+					<key>patterns</key>
+					<array>
 						<dict>
+							<key>begin</key>
+							<string>(\G|^)"</string>
+							<key>end</key>
+							<string>"</string>
 							<key>name</key>
 							<string>string.quoted.double.po</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>\\[\\"]</string>
+									<key>name</key>
+									<string>constant.character.escape.po</string>
+								</dict>
+							</array>
 						</dict>
-						<key>3</key>
-						<dict>
-							<key>name</key>
-							<string>constant.character.double-quote.po</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>^(")(.+)(")\s*$</string>
-					<key>name</key>
-					<string>string.quoted.double.po</string>
+					</array>
 				</dict>
 				<dict>
 					<key>captures</key>
