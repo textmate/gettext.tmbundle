@@ -189,55 +189,117 @@ Create meta scope for each entry
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>match</key>
-					<string>^#\s+(.*)\s*$</string>
-					<key>name</key>
-					<string>comment.line.number-sign.po</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
+					<key>begin</key>
+					<string>^(?=#)</string>
+					<key>end</key>
+					<string>(?!\G)</string>
+					<key>patterns</key>
+					<array>
 						<dict>
+							<key>begin</key>
+							<string>(#,)\s+</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.comment.po</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\n</string>
 							<key>name</key>
-							<string>keyword.other.flag.po</string>
+							<string>comment.line.number-sign.flag.po</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>\G(?:(?:fuzzy)|(?:no-)?(?:c|objc|sh|lisp|elisp|librep|scheme|smalltalk|java|csharp|awk|object-pascal|ycp|tcl|perl|perl-brace|php|gcc-internal|qt|boost)-format)</string>
+									<key>name</key>
+									<string>keyword.other.flag.po</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>,\s*(?:(?:fuzzy)|(?:no-)?(?:c|objc|sh|lisp|elisp|librep|scheme|smalltalk|java|csharp|awk|object-pascal|ycp|tcl|perl|perl-brace|php|gcc-internal|qt|boost)-format)</string>
+									<key>name</key>
+									<string>keyword.other.flag.po</string>
+								</dict>
+							</array>
 						</dict>
-					</dict>
-					<key>match</key>
-					<string>^#,\s+((?:(?:fuzzy)|(?:no-)?(?:c|objc|sh|lisp|elisp|librep|scheme|smalltalk|java|csharp|awk|object-pascal|ycp|tcl|perl|perl-brace|php|gcc-internal|qt|boost)-format)(?:,\s*(?:(?:fuzzy)|(?:no-)?(?:c|objc|sh|lisp|elisp|librep|scheme|smalltalk|java|csharp|awk|object-pascal|ycp|tcl|perl|perl-brace|php|gcc-internal|qt|boost)-format))*)\s*$</string>
-					<key>name</key>
-					<string>comment.line.number-sign.flag.po</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>^#\.\s+(.*)\s*$</string>
-					<key>name</key>
-					<string>comment.line.number-sign.extracted.po</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
 						<dict>
+							<key>begin</key>
+							<string>#\.</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.comment.po</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\n</string>
 							<key>name</key>
-							<string>constant.character.sourceref.po</string>
+							<string>comment.line.number-sign.extracted.po</string>
 						</dict>
-						<key>3</key>
 						<dict>
+							<key>begin</key>
+							<string>(#:)[ \t]*</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.comment.po</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\n</string>
 							<key>name</key>
-							<string>constant.numeric.linenumber.po</string>
+							<string>comment.line.number-sign.reference.po</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>match</key>
+									<string>(\S+:)([\d;]*)</string>
+									<key>name</key>
+									<string>storage.type.class.po</string>
+								</dict>
+							</array>
 						</dict>
-					</dict>
-					<key>match</key>
-					<string>^#:\s+((.*))(:([\d;]*))\s*$</string>
-					<key>name</key>
-					<string>comment.line.number-sign.reference.po</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>^#|\s+(msgid|msgctxt)\s+(".*")\s*$</string>
-					<key>name</key>
-					<string>comment.line.number-sign.previous.po</string>
+						<dict>
+							<key>begin</key>
+							<string>#\|</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.comment.po</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\n</string>
+							<key>name</key>
+							<string>comment.line.number-sign.previous.po</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>#</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.comment.po</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>\n</string>
+							<key>name</key>
+							<string>comment.line.number-sign.po</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
