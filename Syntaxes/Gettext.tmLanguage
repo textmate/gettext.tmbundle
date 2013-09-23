@@ -192,7 +192,7 @@ Create meta scope for each entry
 					<key>comment</key>
 					<string>a line that does not begin with # or ". Could improve this regexp</string>
 					<key>match</key>
-					<string>^[^#"].*$</string>
+					<string>^(?!\s*$)[^#"].*$\n?</string>
 					<key>name</key>
 					<string>invalid.illegal.po</string>
 				</dict>
