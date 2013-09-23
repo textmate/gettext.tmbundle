@@ -38,12 +38,34 @@ Create meta scope for each entry
 			<string>#comments</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>msgid\s+""</string>
-			<key>end</key>
-			<string>^$</string>
+			<key>match</key>
+			<string>^msg(id|str)\s+""\s*$\n?</string>
 			<key>name</key>
-			<string>entity.name.section.header.po</string>
+			<string>comment.line.number-sign.po</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.language.po</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.separator.key-value.po</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>string.other.po</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^"(?:([^\s:]+)(:)\s+)?([^"]*)"\s*$\n?</string>
+			<key>name</key>
+			<string>meta.header.po</string>
 		</dict>
 	</array>
 	<key>repository</key>
