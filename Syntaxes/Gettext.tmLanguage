@@ -269,16 +269,16 @@ Create meta scope for each entry
 							<key>patterns</key>
 							<array>
 								<dict>
+									<key>captures</key>
+									<dict>
+										<key>1</key>
+										<dict>
+											<key>name</key>
+											<string>entity.name.type.flag.po</string>
+										</dict>
+									</dict>
 									<key>match</key>
-									<string>\G(?:(?:fuzzy)|(?:no-)?(?:c|objc|sh|lisp|elisp|librep|scheme|smalltalk|java|csharp|awk|object-pascal|ycp|tcl|perl|perl-brace|php|gcc-internal|qt|boost)-format)</string>
-									<key>name</key>
-									<string>keyword.other.flag.po</string>
-								</dict>
-								<dict>
-									<key>match</key>
-									<string>,\s*(?:(?:fuzzy)|(?:no-)?(?:c|objc|sh|lisp|elisp|librep|scheme|smalltalk|java|csharp|awk|object-pascal|ycp|tcl|perl|perl-brace|php|gcc-internal|qt|boost)-format)</string>
-									<key>name</key>
-									<string>keyword.other.flag.po</string>
+									<string>(?:\G|,\s*)((?:fuzzy)|(?:no-)?(?:c|objc|sh|lisp|elisp|librep|scheme|smalltalk|java|csharp|awk|object-pascal|ycp|tcl|perl|perl-brace|php|gcc-internal|qt|boost)-format)</string>
 								</dict>
 							</array>
 						</dict>
