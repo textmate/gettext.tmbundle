@@ -10,6 +10,7 @@ Create meta scope for each entry
 	<key>fileTypes</key>
 	<array>
 		<string>po</string>
+		<string>pot</string>
 		<string>potx</string>
 	</array>
 	<key>keyEquivalent</key>
